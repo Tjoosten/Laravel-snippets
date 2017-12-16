@@ -1,0 +1,20 @@
+{
+    "encrypt": {
+        "prefix": "Crypt::encrypt", 
+        "body": [
+            "Crypt::encrypt(${1:\\$value});"
+        ], 
+        "description": "Encrypt a value",
+    },
+	"decrypt": {
+		"prefix": "Crypt::decrypt",
+		"body": [
+			"try {\r",
+			"    ${1:\\$decrypted} = Crypt::decrypt(${2:\\$encryptedValue});\r",
+			"} catch (Illuminate\\Contracts\\Encryption\\DecryptException $e) {\r",
+			"    ${3://}\r",
+			"}"
+		],
+		"description": "Decrypt a value."
+	}
+}
