@@ -1,0 +1,52 @@
+{
+	"BelongsToMany": {
+		"prefix": "belongsToMany",
+		"body": [
+			"public function ${1:roles}()\r",
+			"{\r",
+			"    return $$this->belongsToMany(${2:Role::class}${3:, '${4:role_user_table}'}${5:, '${6:user_id}'}${7:, '${8:role_id}'});\r",
+			"}"
+		],
+		"description": "Create a function for an belongsToMany relation"
+	},
+	"BelongsTo": {
+		"prefix": "belongsTo",
+		"body": [
+			"public function ${1:user}()\r",
+			"{\r",
+			"    return \\$this->belongsTo(${2:User::class}${3:, '${4:foreign_key}'}${5:, '${6:other_key}'});\r",
+			"}"
+		],
+		"description": "Create a function for an belongsTo relation"
+	},
+	"HasOne": {
+		"prefix": "hasOne",
+		"body": [
+			"public function ${1:user}()\r",
+			"{\r",
+			"    return \\$this->hasOne(${2:User::class}${3:, '${4:foreign_key}'}${5:, '${6:local_key}'});\r",
+			"}"
+		],
+		"description": "Create function for an hasOne relation"
+	},
+	"HasMany": {
+		"prefix": "hasMany",
+		"body": [
+			"public function ${1:comments}()\r",
+			"{\r",
+			"    return \\$this->hasMany(${2:Comment::class}${3:, '${4:foreign_key}'}${5:, '${6:local_key}'});\r",
+			"}"
+		],
+		"description": "A one-to-many relationship."
+	},
+	"HasManyThrough": {
+		"prefix": "hasManyThrough",
+		"body": [
+			"public function ${1:comments}()\r",
+			"{\r",
+			"    return \\$this->hasManyThrough(${2:Comment::class}, ${3:Post::class});\r",
+			"}"
+		],
+		"description": "A Has Many Through relationship."
+	}
+}
