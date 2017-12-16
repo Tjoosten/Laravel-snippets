@@ -1,0 +1,67 @@
+{
+	"dbDelete": {
+		"prefix": "DB::delete",
+		"body": [
+			"DB::delete(${1:'delete users where name = ?'}${2:, ['John']})"
+		],
+		"description": "Run an delete statement against the database."
+	},
+	"dbInsert": {
+		"prefix": "DB::insert",
+		"body": [
+			"DB::insert(${1:'insert into users (id, name) values (?, ?)'}${2:, [1, 'Dayle']})"
+		],
+		"description": "Run an insert statement against the database."
+	},
+	"dbSelect": {
+		"prefix": "DB::select",
+		"body": [
+			"DB::select(${1:'select * from users where active = ?'}${2:, [1]})"
+		],
+		"description": "Run a select statement against the database."
+	},
+	"dbUpdate": {
+		"prefix": "DB::update",
+		"body": [
+			"DB::update(${1:'update users set votes = 100 where name = ?'}${2:, ['John']})"
+		],
+		"description": "Run an update statement against the database."
+	},
+	"dbStatement": {
+		"prefix": "DB::statement",
+		"body": [
+			"DB::statement(${1:'drop table users'})"
+		],
+		"description": "Execute an SQL statement and return the boolean result."
+	},
+	"dbTransActionBegin": {
+		"prefix": "DB::transaction_begin",
+		"body": [
+			"DB::beginTransaction();"
+		],
+		"description": "Start a new database transaction."
+	},
+	"dbTransaction": {
+		"prefix": "DB::transaction",
+		"body": [
+			"DB::transaction(function () {\r",
+			"    ${1://}\r",
+			"});"
+		],
+		"description": "Execute a Closure within a transaction."
+    },
+    "dbTransactionCommit": {
+        "prefix": "DB::transaction_commit",
+        "body": [
+            "DB::commit();"
+        ], 
+        "description": "Commit the active database transaction."
+    }, 
+    "dbTransactionRollback": {
+        "prefix": "DB::transaction_rollback", 
+        "body": [
+            "DB::rollback();"
+        ],
+        "description": "Rollback the active database transaction."
+    }
+}
